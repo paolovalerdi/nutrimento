@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "nutrimento-2943b": {
+      "hosting": {
+        "nutrimento": [
+          "nutrimento-2943b"
+        ]
+      }
+    }
+  }
+}

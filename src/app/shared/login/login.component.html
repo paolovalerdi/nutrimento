@@ -1,0 +1,30 @@
+<div class="login-container">
+    <div class="body">
+        <div style="width: 100%; text-align: center; margin-bottom: 30px;">
+            <img height="32px"
+                src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/f8f0721f871b3704cce92eb96bc6e504.svg">
+        </div>
+        <h1 style="margin: 40px 0px; width: 100%;">Bienvenido</h1>
+        <span>Ingresa Con Tu Email</span>
+        <form [formGroup]="LogInForm" (ngSubmit)="onLogIn()">
+        <div class="form-group login-input-box">
+            <mat-form-field appearance="outline" class="form-group input-box full-width" style="margin-top: 10px;">
+                <mat-label>Email</mat-label>
+                <input type="email"  matInput placeholder="Correo" class="form-control input-text " formControlName="email" >
+            </mat-form-field>
+        </div>
+        <div class="form-group login-input-box">
+            <mat-form-field appearance="outline" class="form-group input-box full-width" style="margin-top: 10px;">
+                <mat-label>Contraseña</mat-label>
+                <input type="password" matInput placeholder="Contraseña" class="form-control password" formControlName="password" >
+            </mat-form-field>
+        </div>
+        <button type="submit" mat-raised-button class="full-width full-height success-background " style="height: 45px;" >
+            Iniciar Sesion
+        </button>
+        </form>
+        <div style="text-align: center; margin-top: 15px;">
+            <span>¿Nuevo en Nutrimento? </span> <span><a [routerLink]="['/signup']" routerLinkActive="active">Crea Una Cuenta</a></span>
+        </div>
+    </div>
+</div>

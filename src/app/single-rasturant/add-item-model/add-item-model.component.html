@@ -1,0 +1,42 @@
+<div class="add-item-model-container">
+  <div class="model-header">
+    <div class="flex-item-center">
+      <h1>{{data.name}}</h1>
+    </div>
+    <button mat-mini-fab color="default" (click)="onNoClick()">
+      <mat-icon fontSet="material-icons-outlined" mat-icon-button class="icon">close</mat-icon>
+    </button>
+  </div>
+  <div class="model-body">
+    <img src="{{data.imageUrl}}" style="aspect-ratio: 4/3; margin-left: 20px; margin-right: 20px; border-radius: 10px;">
+    <div class="small-gap"></div>
+    <h3 style="font-weight: 400; padding: 16px 20px;">{{data.description}}</h3>
+    <div class="instruction">
+      <h3 style="padding: 16px 20px;">Instrucciones especiales</h3>
+      <div style="padding: 0px 20px;">
+        <mat-form-field class="full-width">
+          <textarea matInput (keyup)="onKey($event)" placeholder="Por ejemplo: Sin mayonesa, con cubiertos, etc"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="model-footer flex-item-center" style="padding-bottom: 16px; padding-top: 16px;">
+    <button mat-raised-button class="full-width full-height success-background" (click)="addToCart(data)"
+      [mat-dialog-close]="data" cdkFocusInitial>
+      <div>
+        Añadir {{itemCount}} a la orden  &#8226;
+        <span>  ${{itemCount * data.price}}</span>
+      </div>
+    </button>
+    <div class="small-gap"></div>
+    <div class="flex-item-center">
+      <button mat-mini-fab style="margin-right: 10px;" color="default" [disabled]="itemCount < 2" (click)="remove()">
+        <mat-icon fontSet="material-icons-outlined" mat-icon-button class="icon">remove</mat-icon>
+      </button>
+      <span>{{itemCount}}</span>
+      <button mat-mini-fab style="margin-left: 10px;" color="default" (click)="add()">
+        <mat-icon fontSet="material-icons-outlined" mat-icon-button class="icon">add</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

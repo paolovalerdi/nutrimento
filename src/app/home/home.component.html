@@ -1,0 +1,25 @@
+<div class="home-container">
+    <div style="margin: 20px 0px 0px 10px;">
+        <span style="font-size: 26px; font-weight: 600;">Explora nuestro menú</span>
+    </div>
+    <div class="card-container">
+        <div class="card" *ngFor="let food of menu | async" (click)="addItemDialog(food)">
+            <div class="img-box">
+                <img [src]="food.imageUrl" width="350px" height="240px" style="border-radius: 8px;">
+            </div>
+            <div class="details-box">
+                <div style="margin-bottom: 8px;">
+                    <span style="font-weight: 600;">{{food.name}}</span><br>
+                </div>
+                <span style="font-weight: 400; font-size: 14px;">{{food.description}}</span>
+                <div style="margin-top: 8px;">
+                    <mat-chip-list>
+                        <mat-chip style="background-color: #4d648d; color: white; font-weight: 600;">
+                            ${{food.price}}
+                        </mat-chip>
+                    </mat-chip-list>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
