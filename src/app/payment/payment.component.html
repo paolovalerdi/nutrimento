@@ -1,0 +1,5 @@
+<div class="container">
+    <mat-spinner *ngIf="isLoading | async"></mat-spinner>
+    <span *ngIf="isLoading | async" style="margin-top: 32px;">Confirmando orden</span>
+    <span *ngIf="!(isLoading | async)">Orden confirmada</span>
+</div>
