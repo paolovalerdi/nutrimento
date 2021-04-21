@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { User } from '../interfaces/Ilogin';
 import { CartService } from '../services/cart.service';
+import { MatDialog } from '@angular/material';
+import { PaymentComponent } from '../payment/payment.component';
 
 @Component({
   selector: 'app-checkout',
@@ -13,21 +15,20 @@ export class CheckoutComponent implements OnInit {
   quantityList = [1,2,3,4,5,6,7,8,9,10];
   user: User;
   cartItems = new Array();
-  constructor(private router: Router, 
+  constructor(
+    private router: Router, 
     public loginService: LoginService,
-    private cartService: CartService) {
-  }
+    private cartService: CartService,
+    public matDialog: MatDialog
+  ) {}
 
-  ngOnInit() {
-    /*this.loginService.loggedIn.subscribe(next => {
-      this.user = next;
-    });*/
+  async ngOnInit() {
+    this.user = await this.loginService.getCurrentUser()
     this.cartService.cart.subscribe(res => {
       this.cartItems = res;
     })
   }
   calculateTotalPriceOfCart () : number{
-    console.log("Hello");
     let total = 0;
     this.cartItems.forEach(element => {
       console.log(element);
@@ -38,8 +39,9 @@ export class CheckoutComponent implements OnInit {
   addToCart(item) {
     this.cartService.addToCart(item);
   }
-  openLoginSideNav(){
-   // this.helperService.loginSideNav.next(true);
+
+  fakePayment() {
+    this.matDialog.open(PaymentComponent);
   }
 
 }

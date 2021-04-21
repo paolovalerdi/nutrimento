@@ -7,10 +7,16 @@
 }
 
 
+.child-box {
+    border-radius: 12px;
+}
+
+
 .cart-container-box{
     padding: 0 30px;
     display: flex;
     margin-top: 30px;
+    justify-content: center;
     .left-container-box{
         
         display: flex;
@@ -52,6 +58,7 @@
         }
        
     }
+
     .right-container-box{
         
         width: 500px;
