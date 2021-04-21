@@ -142,7 +142,7 @@
         </div>
         <div class="cart-card-footer padding">
             <!-- Agregar para ir [routerLink]="['/checkout']"-->
-            <button mat-raised-button (click)="closeCartPopover()"  class="full-width full-height success-background ">
+            <button mat-raised-button (click)="closeCartPopover()" [routerLink]="['/checkout']" class="full-width full-height success-background ">
                 <div class="flex-with-space-between">
                     <span style="border: 1px solid; width: 30px;">
                         {{cartItems.length}}

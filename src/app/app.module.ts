@@ -60,6 +60,7 @@ import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
 import { AddItemModelComponent } from './single-rasturant/add-item-model/add-item-model.component';
 import { DelayInterceptor } from './services/delay-interceptor.service';
+
 const skltnConfig: SkltnConfig = {
   rectRadius: 10,
   flareWidth: '150px',
@@ -72,6 +73,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +91,8 @@ import { environment } from 'src/environments/environment';
     MyAccountComponent,
     PaymentsComponent,
     AddressesComponent,
-    AddItemModelComponent
+    AddItemModelComponent,
+    PaymentComponent
   ],
   imports: [
     FormsModule,
@@ -97,6 +100,7 @@ import { environment } from 'src/environments/environment';
     AppRoutingModule,
     BrowserAnimationsModule,
     //material
+    MatProgressSpinnerModule,
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
@@ -144,6 +148,6 @@ import { environment } from 'src/environments/environment';
     AngularFirestore
   ],
   bootstrap: [AppComponent],
-  entryComponents: [SheduledDeliverModelComponent, AddItemModelComponent]
+  entryComponents: [SheduledDeliverModelComponent, AddItemModelComponent, PaymentComponent]
 })
 export class AppModule { }

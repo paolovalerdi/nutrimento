@@ -4,158 +4,87 @@
         <div class="left-container-box">
             <div class="child-box" *ngIf="!user">
                 <div>
-                    <h2>Account</h2>
-                    <span>To place your order now, log in to
-                        your existing account or sign up.</span>
+                    <h2>Cuenta</h2>
+                    <span>Para poder completar tu orden necesitas estar registrado.</span>
                 </div>
                 <div class="button-container">
                     <div class="button-box">
                         <button mat-raised-button class="default-button success-background" style="width: 150px;"
                         [routerLink]="['/login']">
-                            LOG IN
+                            INICIAR SESION
                         </button>
                     </div>
                     <div class="button-box" style="margin-left: 20px;">
                         <button mat-raised-button class="default-button success-outline" style="width: 150px;"
                         [routerLink]="['/signup']" >
-                            SIGN UP
+                            REGISTRARSE
                         </button>
                     </div>
                 </div>
             </div>
             <div class="child-box">
-                <div>
-                    <h2> Choose a delivery address</h2>
-                    <span>
-                        Multiple addresses in this location
-                    </span>
+                <div class="cart-card-header flex-with-space-between">
+                    <div class="flex-item-center">
+                        <h2>Dirección de entrega</h2>
+                    </div>
+                    <button mat-icon-button>
+                        <mat-icon fontSet="material-icons-outlined">add</mat-icon>
+                     </button>
                 </div>
                 <div class="address-box-container">
                     <div class="address-box-card">
                         <div class="address-box-header">
-                            <mat-icon fontSet="material-icons-outlined">home</mat-icon>
-                            <h3 style="font-weight: 500; margin-left: 10px">Home</h3>
+                            <mat-icon fontSet="material-icons-outlined">corporate_fare</mat-icon>
+                            <h3 style="font-weight: 500; margin-left: 10px">Casa</h3>
                         </div>
                         <div class="address-box-footer">
-                            <label> F 103, 64 Green Meadows, Marunji Rd, Marunji Village, Hinjawadi, Marunji,
-                                Maharashtra
-                                411033, India</label>
+                            <label> Calle Sin Nombre No. 1 1234567 Puebla, Puebla</label>
                             <div style="margin-top: 20px;">
-                                <label>41 MINS</label>
                                 <div class="button-box">
                                     <button mat-raised-button class="default-button success-outline"
-                                        style="width: 150px; margin-top: 20px;">
-                                        <span>DELIVER HERE</span>
+                                        style="width: 150px;">
+                                        <span>Entregar aquí</span>
                                     </button>
                                 </div>
                             </div>
                         </div>
-
-                    </div>
-                    <div class="address-box-card">
-                        <div class="address-box-header">
-                            <mat-icon fontSet="material-icons-outlined">work_outline</mat-icon>
-                            <h3 style="font-weight: 500; margin-left: 10px">Work</h3>
-                        </div>
-                        <div class="address-box-footer">
-                            <label> F 103, 64 Green Meadows, Marunji Rd, Marunji Village, Hinjawadi, Marunji,
-                                Maharashtra
-                                411033, India</label>
-                            <div style="margin-top: 20px;">
-                                <label>41 MINS</label>
-                                <div class="button-box">
-                                    <button mat-raised-button class="default-button success-outline"
-                                        style="width: 150px; margin-top: 20px;">
-                                        <span>DELIVER HERE</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="address-box-card">
-                        <div class="address-box-header">
-                            <mat-icon fontSet="material-icons-outlined">home</mat-icon>
-                            <h3 style="font-weight: 500; margin-left: 10px">Home</h3>
-                        </div>
-                        <div class="address-box-footer">
-                            <label> F 103, 64 Green Meadows, Marunji Rd, Marunji Village, Hinjawadi, Marunji,
-                                Maharashtra
-                                411033, India</label>
-                            <div style="margin-top: 20px;">
-                                <label>41 MINS</label>
-                                <div class="button-box">
-                                    <button mat-raised-button class="default-button success-outline"
-                                        style="width: 150px; margin-top: 20px;">
-                                        <span>DELIVER HERE</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
-
-
             </div>
             <div class="child-box">
                 <div>
-                    <h2>Choose payment method</h2>
-
+                    <h2>Elije un método de pago</h2>
                 </div>
                 <div class="second-view">
                     <div class="body" style="padding: 0;">
                         <div class="list-view">
                             <div class="list-box">
                                 <ul>
-                                    <li class="item">
-                                        <mat-icon fontSet="material-icons-outlined" class="icon">
-                                            account_balance_wallet
-                                        </mat-icon>
-                                        <span class="text" style="margin-left: 10px;">Wallets</span>
-                                    </li>
                                     <li class="item ">
 
                                         <mat-icon fontSet="material-icons-outlined" class="icon">
                                             credit_card
                                         </mat-icon>
                                         <span style="margin-left: 10px;" class="text">
-                                            Credit/Debit Cards
+                                            Tarjeta de credito / débito
                                         </span>
                                     </li>
                                     <li class="item active_item">
                                         <mat-icon fontSet="material-icons-outlined" class="icon">
                                             money
                                         </mat-icon>
-                                        <span class="text" style="margin-left: 10px;">Pay on Delivery</span>
+                                        <span class="text" style="margin-left: 10px;">Pagar al entregar</span>
                                     </li>
-                                    <li class="item">
-                                        <mat-icon fontSet="material-icons-outlined" class="icon">
-                                            credit_card
-                                        </mat-icon>
-                                        <span class="text" style="margin-left: 10px;">UPI</span>
-                                    </li>
-
 
                                 </ul>
                             </div>
                         </div>
                         <div class="result-view">
                             <div class="result-box">
-                                <img class="_2tuBw _12_oN" width="140" height="80" alt=""
-                                    src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_140,h_80/image-pay-by-cash_av6bcw">
                                 <div style="margin-top: 30px;display: flex; flex-direction: column;">
-                                    <h3 style="font-weight: 400">Cash</h3>
-                                    <span style="margin-top: 10px; font-weight: 500; opacity: .5;">Please keep exact
-                                        change handy to help us serve you better</span>
-                                    <div class="button-box full-size-button-box">
-                                        <button mat-raised-button class="default-button success-background"
-                                            style="margin-top: 20px;">
-                                            <span>PAY ₹119</span>
-                                        </button>
-                                    </div>
+                                    <h3 style="font-weight: 400">Efectivo</h3>
+                                    <span style="margin-top: 10px; font-weight: 500; opacity: .5;">Por favor ten cambio exacto para nuestro repartidor.</span>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -163,14 +92,13 @@
             </div>
         </div>
         <div class="right-container-box">
-            <div class="main-box cart-card" style="padding: 0;">
+            <div class="main-box cart-card" style="padding: 0; border-radius: 12px;">
                 <div class="cart-card-header flex-with-space-between padding-horizontaly">
                     <div class="flex-item-center">
-                        <mat-icon fontSet="material-icons-outlined">work_outline</mat-icon>
+                        <mat-icon fontSet="material-icons-outlined">receipt_long</mat-icon>
                         <div class="very-small-gap"></div>
-                        <h2>Your Order ({{cartItems.length}})</h2>
+                        <h2>Tu orden ({{cartItems.length}})</h2>
                     </div>
-                    <mat-icon fontSet="material-icons-outlined">close</mat-icon>
                 </div>
                 <div class="cart-card-body" style="max-height: 280px !important;">
                     <ul>
@@ -187,26 +115,26 @@
                                 </mat-form-field>
                                 <div class="small-gap"></div>
                                 <div class="flex-column">
-                                    <span> {{item.name}} </span>
-                                    <a style="margin-top: 5px;" class="success">Edit </a>
+                                    <span> {{item.food.name}} </span>
                                 </div>
                             </div>
-                            <span>₹ {{item.quantity * item.price}}</span>
+                            <span>$ {{item.quantity * item.food.price}}</span>
                         </li>
                     </ul>
                 </div>
                 <div class="cart-card-footer padding">
                     <button mat-raised-button
+                        (click)="fakePayment()"
                         class="full-width full-height success-background ">
                         <div class="flex-with-space-between">
                             <span style="border: 1px solid; width: 30px;">
                                 {{cartItems.length}}
                             </span>
                             <span>
-                                Pay
+                                Pagar
                             </span>
                             <span>
-                                ₹ {{calculateTotalPriceOfCart()}}
+                                $ {{calculateTotalPriceOfCart()}}
                             </span>
                         </div>
                     </button>

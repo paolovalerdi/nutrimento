@@ -17,4 +17,8 @@ export class CartService {
     this.cart.next(lastList);
   }
 
+  clearCart() {
+    this.cart.next(new Array());
+  }
+
 }
