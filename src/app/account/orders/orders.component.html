@@ -1,8 +1,8 @@
-<h1>Past orders</h1>
-<ng-container *ngIf="orders.length < 1">
+<h1>Tus pedidos</h1>
+<!--<ng-container >
         <skltn-root class="card" duration="1000" [rectRadius]="10" flareWidth="50%" bgFill="#d8d5d1"
-            flareFill="rgba(255,255,255, 0.5)" *ngFor="let item of loader">
-            <!-- Card with Avatar -->
+            flareFill="rgba(255,255,255, 0.5)" >
+            <!-- Card with Avatar 
             <div class="skltn-card">
                 <div skltn-bone class="skltn-card__avatar" type="circle"></div>
                 <div class="skltn-card__body">
@@ -12,26 +12,26 @@
                 </div>
             </div>
         </skltn-root>
-</ng-container>
-<div class="order-box" *ngFor="let order of orders">
+</ng-container>-->
+<div class="order-box">
     <div class="img-box">
-        <img [src]="order.image" width="250" height="120">
+        <img src="https://assets.tmecosys.com/image/upload/t_web600x528/img/recipe/ras/Assets/40C2FDC0-2110-4C8B-9178-6973DDAC81C6/Derivates/E1EB6EE1-16F5-4BE1-AB3E-829113481FFB.jpg" width="250" height="120">
     </div>
     <div class="detail-box">
         <div style="margin-bottom: 5px;"><span style="font-size: 18px; font-weight: 600;">{{order.name}}</span></div>
-        <label>{{order.meals.length}} items for ₹ {{order.totalPrice}} • {{order.time}}</label>
+        <label>5 items for ₹ 150 • 27/04/2021</label>
         <ul style="margin-top: 15px;">
-            <li style="margin-bottom: 10px;" class="flex-item-center" *ngFor="let meal of order.meals">
-                <div class="border-box">{{meal.quantity}}</div>
+            <li style="margin-bottom: 10px;" class="flex-item-center" >
+                <div class="border-box">5</div>
                 <div class="very-small-gap"></div>
-                <span>{{meal.name}}</span>
+                <span>Torta Guajolota</span>
             </li>
 
         </ul>
     </div>
     <div style="flex: 1; margin-left: 40px;">
-        <button mat-raised-button class="full-width full-height success-background " style="height: 45px;">
-            Reorder
+        <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:khaki; color: black;">
+            En preparación
         </button>
     </div>
 </div>
