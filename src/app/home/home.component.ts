@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
   menu = this.resturantService.menu;
 
   ngOnInit() {
-    this.menu.forEach((it) => console.log(it));
   }
 
   goToRestaurant(id){
