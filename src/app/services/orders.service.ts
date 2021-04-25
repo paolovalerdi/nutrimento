@@ -1,16 +1,25 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Order } from '../interfaces/order';
+import { OrderFood } from '../interfaces/order-food';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrdersService {
 
-  api = "http://localhost:3000";
+  constructor(private readonly firestore: AngularFirestore) { }
 
-  constructor(private httpClient: HttpClient) { }
-  getAllOrders(): Observable<any>{
-   return this.httpClient.get(this.api+"/orders");
+  getOrdersByUsersId(user: string) {
+
   }
+
+  async sentOrderToDb(useruid: string, products: Array<OrderFood>) {
+    await this.firestore.collection<Order>("orders").add({
+      userId: useruid,
+      date: new Date().toString(),
+      products: JSON.stringify(products),
+      status: 0
+    });
+  } 
 }
