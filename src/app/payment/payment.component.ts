@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialogRef} from '@angular/material';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { CartService } from '../services/cart.service';
+import { LoginService } from '../services/login.service';
+import { OrdersService } from '../services/orders.service';
 
 
 @Component({
@@ -12,31 +14,29 @@ import { CartService } from '../services/cart.service';
 })
 export class PaymentComponent implements OnInit {
 
-  isLoading: Observable<Boolean>;
+  isLoading = new BehaviorSubject<Boolean>(true);
 
   constructor(
     private router: Router,
-    private dialogRef: MatDialogRef<PaymentComponent>,
-    private cartService: CartService
+    private readonly dialogRef: MatDialogRef<PaymentComponent>,
+    private readonly loginService: LoginService,
+    private readonly cartService: CartService,
+    private readonly orderService: OrdersService,
   ) { 
-    this.isLoading = new Observable(subscriber => {
-      subscriber.next(true);
-      setTimeout(() => {
-        subscriber.next(false);
-      }, 1000)
-    });
-    this.isLoading.subscribe(suscriber => {
-      if(!suscriber) {
-        setTimeout(() => {
-          dialogRef.close();
-          cartService.clearCart();
-          router.navigate(["/home"])
-        }, 1000);
-      }
-    })
   }
 
-  ngOnInit() {    
+  async ngOnInit() {
+    this.isLoading.subscribe(value => {
+      if (!value) {
+        this.cartService.clearCart();
+        this.router.navigate(["/home"]);
+        this.dialogRef.close();
+      }
+    });
+    const user = await this.loginService.getCurrentUser();
+    const products = this.cartService.cart.value;
+    await this.orderService.sentOrderToDb(user.uid, products);
+    this.isLoading.next(false);
   }
 
 }

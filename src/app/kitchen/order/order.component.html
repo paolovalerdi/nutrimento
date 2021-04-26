@@ -1,0 +1,79 @@
+<div class="cart-container">
+
+    <div class="cart-container-box">
+        <div class="left-container-box">
+            <div class="child-box">
+                <div class="cart-card-header flex-with-space-between">
+                    <div class="flex-item-center">
+                        <h2>Ordenes</h2>
+                    </div>
+                </div>
+                <div class="address-box-container">
+                    <div class="address-box-card" *ngFor="let order of orders | async">
+                        <div class="address-box-header">
+                            <mat-icon fontSet="material-icons-outlined">receipt_long</mat-icon>
+                            <h3 style="font-weight: 500; margin-left: 10px">{{ order.id }}</h3>
+                        </div>
+                        <div class="address-box-footer">
+                            <ul>
+                                <li *ngFor="let product of order.products">
+                                    {{ product.quantity }} x {{ product.name }} 
+                                </li>
+                            </ul>
+                            <div style="margin-top: 20px;">
+                                <div class="button-box">
+                                    <button mat-raised-button class="default-button success-outline"
+                                        style="width: 150px;">
+                                        <span>Ver oden</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-container-box">
+            <div class="main-box cart-card" style="padding: 0; border-radius: 12px;">
+                <div class="cart-card-header flex-with-space-between padding-horizontaly">
+                    <div class="flex-item-center">
+                        <mat-icon fontSet="material-icons-outlined">receipt_long</mat-icon>
+                        <div class="very-small-gap"></div>
+                        <h2>Orden</h2>
+                    </div>
+                </div>
+                <div class="cart-card-body" style="max-height: 280px !important;">
+                    <ul>
+                        <li class="flex-with-space-between padding" *ngFor="let product of cartItems">
+                            <div class="flex-item-center">
+                                <div class="small-gap"></div>
+                                <div class="flex-column">
+                                    <span> {{item.food.name}} </span>
+                                </div>
+                            </div>
+                            <span>$ {{item.quantity * item.food.price}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cart-card-footer padding">
+                    <button mat-raised-button
+                        (click)="fakePayment()"
+                        class="full-width full-height success-background ">
+                        <div class="flex-with-space-between">
+                            <span style="border: 1px solid; width: 30px;">
+                                {{cartItems.length}}
+                            </span>
+                            <span>
+                                Pagar
+                            </span>
+                            <span>
+                                $ {{calculateTotalPriceOfCart()}}
+                            </span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

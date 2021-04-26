@@ -10,9 +10,7 @@ export class MyAccountComponent implements OnInit {
 
   currentRoute = "orders";
   constructor(private activetedRoute: ActivatedRoute) { 
-    this.activetedRoute.url.subscribe(res=>{
-     console.log(res);
-    });
+
   }
   changeChildRoute(name){
     this.currentRoute = name;

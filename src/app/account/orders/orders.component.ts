@@ -12,9 +12,7 @@ export class OrdersComponent implements OnInit {
   constructor(private orderService: OrdersService) { }
 
   ngOnInit() {
-    this.orderService.getAllOrders().subscribe(res=>{
-      this.orders = res;
-    });
+    
   }
 
 }
