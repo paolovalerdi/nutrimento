@@ -74,6 +74,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { PaymentComponent } from './payment/payment.component';
+import { OrderComponent } from './kitchen/order/order.component';
+
+
 
 @NgModule({
   declarations: [
@@ -92,7 +95,8 @@ import { PaymentComponent } from './payment/payment.component';
     PaymentsComponent,
     AddressesComponent,
     AddItemModelComponent,
-    PaymentComponent
+    PaymentComponent,
+    OrderComponent
   ],
   imports: [
     FormsModule,
@@ -141,7 +145,7 @@ import { PaymentComponent } from './payment/payment.component';
     NgxPageScrollCoreModule.forRoot({duration: 1500}),
     NgxPageScrollModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule  
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: DelayInterceptor, multi: true },

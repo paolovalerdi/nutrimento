@@ -10,6 +10,7 @@ import { PaymentsComponent } from './account/payments/payments.component';
 import { AddressesComponent } from './account/addresses/addresses.component';
 import { SingleRasturantComponent } from './single-rasturant/single-rasturant.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderComponent } from './kitchen/order/order.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,14 @@ const routes: Routes = [
   },
   {
     path: 'checkout', component: CheckoutComponent
+  },
+  {
+    path: 'kitchen',
+    children: [
+      {
+        path: 'orders', component: OrderComponent
+      }
+    ]
   },
   {
     path: 'my-account', component: MyAccountComponent,
