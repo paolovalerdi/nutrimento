@@ -28,6 +28,8 @@ export class OrderComponent implements OnInit {
      this.selectedOrder.next(s)
     });
   }
-
+  async cambiarStatus(id : string,status : string) {
+    this.orderService.actualizarEstado(id,status);
+   }
 
 }

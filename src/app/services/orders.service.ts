@@ -59,20 +59,16 @@ export class OrdersService {
           id: it.payload.id,
           date: Date.parse(doc.date),
           products: products,
+          estado: doc.status,
         };
       }))
   }
 
 actualizarEstado(id: string,status: string) {
-  let doc = this.firestore.collection('options', ref => ref.where('id', '==', id));
-  doc.snapshotChanges().pipe(
-    map(actions => actions.map(a => {                                                      
-      const data = a.payload.doc.data();
-      const id = a.payload.doc.id;
-      return { id };
-    }))).subscribe((_doc: any) => {
-     let id = _doc[0].payload.doc.id; //first result of query [0]
-     this.firestore.doc(`orders/${id}`).update({status: status});
-    })
+  console.log("Entrada" + id);
+  console.log("ESTADO", status);
+return this.firestore.collection<any>("orders").doc<any>(id).update({status: status});
+
 }
 }
+
