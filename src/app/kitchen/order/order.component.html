@@ -22,7 +22,7 @@
                             </ul>
                             <div style="margin-top: 20px;">
                                 <div class="button-box">
-                                    <button mat-raised-button class="default-button success-outline"
+                                    <button mat-raised-button class="default-button success-outline" (click)="mostrarOrden(order.id)"
                                         style="width: 150px;">
                                         <span>Ver oden</span>
                                     </button>
@@ -39,36 +39,27 @@
                     <div class="flex-item-center">
                         <mat-icon fontSet="material-icons-outlined">receipt_long</mat-icon>
                         <div class="very-small-gap"></div>
-                        <h2>Orden</h2>
+                        <h2>Orden {{selectedOrder.value.id}}</h2>
+
                     </div>
                 </div>
                 <div class="cart-card-body" style="max-height: 280px !important;">
                     <ul>
-                        <li class="flex-with-space-between padding" *ngFor="let product of cartItems">
+                    <!--<li class="flex-with-space-between padding" *ngFor="let product of selectedOrder.value.products | async">
                             <div class="flex-item-center">
                                 <div class="small-gap"></div>
                                 <div class="flex-column">
-                                    <span> {{item.food.name}} </span>
+                                    <span> {{product.name}} </span>
                                 </div>
                             </div>
-                            <span>$ {{item.quantity * item.food.price}}</span>
-                        </li>
+                        </li>-->
                     </ul>
                 </div>
                 <div class="cart-card-footer padding">
                     <button mat-raised-button
-                        (click)="fakePayment()"
                         class="full-width full-height success-background ">
                         <div class="flex-with-space-between">
-                            <span style="border: 1px solid; width: 30px;">
-                                {{cartItems.length}}
-                            </span>
-                            <span>
-                                Pagar
-                            </span>
-                            <span>
-                                $ {{calculateTotalPriceOfCart()}}
-                            </span>
+                            
                         </div>
                     </button>
                 </div>

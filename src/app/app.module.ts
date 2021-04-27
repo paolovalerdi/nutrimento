@@ -71,7 +71,7 @@ const skltnConfig: SkltnConfig = {
 // Firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { PaymentComponent } from './payment/payment.component';
 import { OrderComponent } from './kitchen/order/order.component';
@@ -150,8 +150,11 @@ import { OrderComponent } from './kitchen/order/order.component';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: DelayInterceptor, multi: true },
     AngularFirestore
+    
+
   ],
   bootstrap: [AppComponent],
   entryComponents: [SheduledDeliverModelComponent, AddItemModelComponent, PaymentComponent]
+
 })
 export class AppModule { }
