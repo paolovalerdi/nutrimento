@@ -22,9 +22,9 @@
                             </ul>
                             <div style="margin-top: 20px;">
                                 <div class="button-box">
-                                    <button mat-raised-button class="default-button success-outline"
+                                    <button mat-raised-button class="default-button success-outline" (click)="mostrarOrden(order.id)"
                                         style="width: 150px;">
-                                        <span>Ver oden</span>
+                                        <span>Ver orden</span>
                                     </button>
                                 </div>
                             </div>
@@ -34,41 +34,57 @@
             </div>
         </div>
         <div class="right-container-box">
-            <div class="main-box cart-card" style="padding: 0; border-radius: 12px;">
+            <div class="main-box cart-card" style="padding: 0; border-radius: 12px; height: 380px;">
                 <div class="cart-card-header flex-with-space-between padding-horizontaly">
                     <div class="flex-item-center">
                         <mat-icon fontSet="material-icons-outlined">receipt_long</mat-icon>
                         <div class="very-small-gap"></div>
                         <h2>Orden</h2>
+
                     </div>
                 </div>
                 <div class="cart-card-body" style="max-height: 280px !important;">
-                    <ul>
-                        <li class="flex-with-space-between padding" *ngFor="let product of cartItems">
-                            <div class="flex-item-center">
-                                <div class="small-gap"></div>
-                                <div class="flex-column">
-                                    <span> {{item.food.name}} </span>
-                                </div>
-                            </div>
-                            <span>$ {{item.quantity * item.food.price}}</span>
-                        </li>
-                    </ul>
+                    <h3>Tu orden es:</h3>
+                    <br>
+
+                        <div class="d-flex justify-content-center" style="height:25px; text-align: center;">
+                            <h2>{{selectedOrder.value.id}}</h2> 
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == 0">
+                            <h2>La orden no se ah iniciado</h2> 
+                        </div>
+                        <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == 1">
+                            <h2>La orden esta en proceso</h2> 
+                        </div>
+                        <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == 2">
+                            <h2>La orden esta lista</h2> 
+                        </div>
+                       
                 </div>
                 <div class="cart-card-footer padding">
-                    <button mat-raised-button
-                        (click)="fakePayment()"
-                        class="full-width full-height success-background ">
-                        <div class="flex-with-space-between">
-                            <span style="border: 1px solid; width: 30px;">
-                                {{cartItems.length}}
-                            </span>
+                    <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:rgb(251, 159, 159); color: black;margin: 10px;" (click)="cambiarStatus(selectedOrder.value.id,0)">
+
+                        <div class="d-flex justify-content-center">
                             <span>
-                                Pagar
+                                Orden sin iniciar
                             </span>
+                        </div>
+                    </button>
+                    <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:khaki; color: black;margin: 10px;" (click)="cambiarStatus(selectedOrder.value.id,1)">
+
+                        <div class="d-flex justify-content-center">
                             <span>
-                                $ {{calculateTotalPriceOfCart()}}
+                                Marcar orden en proceso
                             </span>
+                        </div>
+                    </button>
+                    <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:rgb(172, 246, 176); color: black;margin: 10px;" (click)="cambiarStatus(selectedOrder.value.id,2)">
+
+                        <div class="d-flex justify-content-center">
+                            <span>
+                               Marcar orden Terminada
+                           </span> 
                         </div>
                     </button>
                 </div>
