@@ -75,6 +75,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { PaymentComponent } from './payment/payment.component';
 import { OrderComponent } from './kitchen/order/order.component';
+import { WorkersHomeComponent } from './workers-home/workers-home.component';
+import { WorkersLoginComponent } from './workers-login/workers-login.component';
+import { WorkersSingupComponent } from './workers-singup/workers-singup.component';
 
 
 
@@ -96,7 +99,10 @@ import { OrderComponent } from './kitchen/order/order.component';
     AddressesComponent,
     AddItemModelComponent,
     PaymentComponent,
-    OrderComponent
+    OrderComponent,
+    WorkersHomeComponent,
+    WorkersLoginComponent,
+    WorkersSingupComponent,
   ],
   imports: [
     FormsModule,
