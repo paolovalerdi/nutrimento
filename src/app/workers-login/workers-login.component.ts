@@ -23,7 +23,7 @@ export class WorkersLoginComponent implements OnInit {
     try{
       const user = await this.authSvc.logIn(email, password);
       if (user){
-        this.router.navigate(['workershome']);
+        this.router.navigate(['/kitchen/orders']);
       }
     }
     catch (error){
