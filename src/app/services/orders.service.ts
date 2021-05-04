@@ -30,6 +30,7 @@ export class OrdersService {
           id: it.payload.doc.id,
           date: Date.parse(doc.date),
           products: products,
+          userid: doc.userId
         }
       })),
     );
@@ -70,5 +71,28 @@ actualizarEstado(id: string,status: string) {
 return this.firestore.collection<any>("orders").doc<any>(id).update({status: status});
 
 }
+getOrderUser() {
+  return this.firestore.collection<any>("orders").snapshotChanges().pipe(
+    map(actions => actions.map(it => {
+      const doc = it.payload.doc.data();
+      let products = JSON.parse(doc.products);
+      products = products.map((prod) => {
+        return {
+          name: prod.food.name,
+          quantity: prod.quantity
+        };
+      });
+      return {
+        id: it.payload.doc.id,
+        date: Date.parse(doc.date),
+        products: products,
+        userid: doc.userId,
+        status: doc.status
+      }
+    })),
+  );
+}
+
+
 }
 

@@ -15,23 +15,37 @@
 </ng-container>-->
 <div class="order-box">
     <div class="img-box">
-        <img src="https://assets.tmecosys.com/image/upload/t_web600x528/img/recipe/ras/Assets/40C2FDC0-2110-4C8B-9178-6973DDAC81C6/Derivates/E1EB6EE1-16F5-4BE1-AB3E-829113481FFB.jpg" width="250" height="120">
+        <img src="https://www.diariodexalapa.com.mx/local/uw0ptb-mesero/ALTERNATES/LANDSCAPE_1140/mesero" width="250" height="120">
     </div>
     <div class="detail-box">
-        <div style="margin-bottom: 5px;"><span style="font-size: 18px; font-weight: 600;">{{order.name}}</span></div>
-        <label>5 items for ₹ 150 • 27/04/2021</label>
-        <ul style="margin-top: 15px;">
-            <li style="margin-bottom: 10px;" class="flex-item-center" >
-                <div class="border-box">5</div>
-                <div class="very-small-gap"></div>
-                <span>Torta Guajolota</span>
-            </li>
+        <div *ngFor="let order of orders | async">
+        <div *ngIf="order.userid == usuario"> 
+        <div *ngIf="order.status != 2">
+     <span style="font-size: 18px; font-weight: 600;">{{order.userid}}</span>
 
-        </ul>
+        <div style="margin-bottom: 5px;" *ngFor="let product of order.products">
+            <label>
+                {{ product.quantity }} x {{ product.name }} 
+            
+            </label>
+s          
+
+        </div>
+        <div style="flex: 1; margin-left: 400px;"          *ngIf="order.status ==0">
+            
+            <button mat-raised-button class="full-width full-height success-background " style="height: 80px; width: 700px; background-color:khaki; color: black;">
+                En preparación
+            </button>
+        </div>
+        <div style="flex: 1; margin-left: 400px;"          *ngIf="order.status ==1">
+            
+            <button mat-raised-button class="full-width full-height success-background " style="height: 80px; width: 700px; background-color:rgb(128, 243, 107); color: black;">
+                ¡Su orden esta lista!
+            </button>
+        </div>
+        </div>
+        
+        </div>
     </div>
-    <div style="flex: 1; margin-left: 40px;">
-        <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:khaki; color: black;">
-            En preparación
-        </button>
-    </div>
+  
 </div>
