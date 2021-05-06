@@ -11,6 +11,11 @@ import { AddressesComponent } from './account/addresses/addresses.component';
 import { SingleRasturantComponent } from './single-rasturant/single-rasturant.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderComponent } from './kitchen/order/order.component';
+import { WorkersHomeComponent } from './workers-home/workers-home.component';
+import { WorkersLoginComponent } from './workers-login/workers-login.component';
+import { WorkersSingupComponent } from './workers-singup/workers-singup.component';
+
+
 
 
 const routes: Routes = [
@@ -34,7 +39,7 @@ const routes: Routes = [
     children: [
       {
         path: 'orders', component: OrderComponent
-      }
+      },
     ]
   },
   {
@@ -59,6 +64,15 @@ const routes: Routes = [
         path: '**', redirectTo: 'orders', pathMatch: 'full'
       }
     ]
+  },
+  {
+    path: 'workershome', component: WorkersHomeComponent
+  },
+  {
+    path: 'workerslogin', component: WorkersLoginComponent
+  },
+  {
+    path: 'workerssingup', component: WorkersSingupComponent
   },
   {
     path: '', redirectTo: 'home', pathMatch: 'full'

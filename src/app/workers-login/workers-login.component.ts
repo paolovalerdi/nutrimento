@@ -4,17 +4,16 @@ import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-workers-login',
+  templateUrl: './workers-login.component.html',
+  styleUrls: ['./workers-login.component.scss']
 })
-export class LoginComponent implements OnInit {
-
+export class WorkersLoginComponent implements OnInit {
+  
   LogInForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
   });
-  //user = {} as User;
   constructor(private authSvc: LoginService, private router: Router) { }
 
   ngOnInit() {
@@ -24,7 +23,7 @@ export class LoginComponent implements OnInit {
     try{
       const user = await this.authSvc.logIn(email, password);
       if (user){
-        this.router.navigate(['home']);
+        this.router.navigate(['/kitchen/orders']);
       }
     }
     catch (error){
@@ -33,5 +32,4 @@ export class LoginComponent implements OnInit {
     
     
   }
-
 }

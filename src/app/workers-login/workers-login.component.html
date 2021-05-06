@@ -1,16 +1,15 @@
 <div class="login-container">
     <div class="body">
         <div style="width: 100%; text-align: center; margin-bottom: 30px;">
-            <img height="90px"
-                src="https://i.ibb.co/PjQ50W1/logo.png">
+            <h1>Nutrimento</h1>
         </div>
-        <h1 style="margin: 40px 0px; width: 100%;">Bienvenido</h1>
+        <h1 style="margin: 40px 0px; width: 100%;">Bienvenido Empleado</h1>
         <span>Ingresa Con Tu Email</span>
         <form [formGroup]="LogInForm" (ngSubmit)="onLogIn()">
         <div class="form-group login-input-box">
             <mat-form-field appearance="outline" class="form-group input-box full-width" style="margin-top: 10px;">
                 <mat-label>Email</mat-label>
-                <input type="email"  matInput placeholder="Correo" class="form-control input-text " formControlName="email" >
+                <input type="email"  matInput placeholder="Correo: @nutrimento.com" class="form-control input-text " formControlName="email" >
             </mat-form-field>
         </div>
         <div class="form-group login-input-box">
@@ -20,14 +19,11 @@
             </mat-form-field>
         </div>
         <button type="submit" mat-raised-button class="full-width full-height success-background " style="height: 45px;" >
-            Iniciar Sesion
+            Iniciar Sesion Como Empleado
         </button>
         </form>
         <div style="text-align: center; margin-top: 15px;">
             <span>¿Nuevo en Nutrimento? </span> <span><a [routerLink]="['/signup']" routerLinkActive="active">Crea Una Cuenta</a></span>
-        </div>
-        <div style="text-align: center; margin-top: 15px;">
-            <span>¿Eres trabajador de Nutrimento? </span> <span><a [routerLink]="['/workerslogin']" routerLinkActive="active">Inicia Sesion como trabajador</a></span>
         </div>
     </div>
 </div>

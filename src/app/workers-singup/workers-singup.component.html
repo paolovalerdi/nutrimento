@@ -1,11 +1,10 @@
 <div class="signup-container">
     <div class="body">
         <div style="width: 100%; text-align: center; margin-bottom: 30px;">
-            <img height="80px"
-                src="https://i.ibb.co/PjQ50W1/logo.png">
+            <h1>Nutrimento</h1>
         </div>
-        <span style="margin-bottom: 10px;">Crea una cuenta con tu correo electronico</span>
-        <!--<div class="login-inpu  t-box">
+        <span style="margin-bottom: 10px;">Crea una cuenta de empleado con tu correo electronico</span>
+        <!--<div class="login-input-box">
             <mat-form-field appearance="outline" class="input-box full-width" >
                 <mat-label>Mobile number</mat-label>
                 <input matInput placeholder="Mobile number" class="input-text">
@@ -15,7 +14,7 @@
             <div class="form-group login-input-box">
                 <mat-form-field appearance="outline" class="form-group input-box full-width" >
                     <mat-label>Email </mat-label>
-                    <input type="email"  matInput placeholder="Correo" class="form-control input-text " formControlName="email" >
+                    <input type="email"  matInput placeholder="Correo: @nutrimento.com" class="form-control input-text " formControlName="email" >
                 </mat-form-field>
                
                     <!--<label for="email">Email </label>
@@ -31,7 +30,7 @@
                     <input type="password" class="form-control" formControlName="password" placeholder="Contraseña"  /> -->
             </div>
             <button type="submit" mat-raised-button class="full-width full-height success-background " style="height: 45px;">
-                Registrarse
+                Registrarse Como Empleado
             </button>
         </form>
         <div style="text-align: center; margin-top: 15px;">
@@ -40,12 +39,6 @@
                 <a [routerLink]="['/login']" routerLinkActive="active">Iniciar Sesión</a>
             </span>
             
-        </div>
-        <div style="text-align: center; margin-top: 15px;">
-            <span>¿Quieres crear una cuenta de trabajador? </span> 
-            <span>
-                <a [routerLink]="['/workerssingup']" routerLinkActive="active">Crear Cuenta Trabajador</a>
-            </span>
         </div>
     </div>
 </div>
