@@ -43,7 +43,7 @@
 
                     </div>
                 </div>
-                <div class="cart-card-body" style="max-height: 280px !important;">
+                <div class="cuadro" style="max-height: 480px !important;">
                     <h3>Tu orden es:</h3>
                     <br>
 
@@ -52,41 +52,82 @@
                         </div>
                         <br>
                         <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == 0">
-                            <h2>La orden no se ah iniciado</h2> 
-                        </div>
+                            <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:rgb(251, 159, 159); color: black;margin: 10px;"x>
+
+                                <div class="d-flex justify-content-center">
+                                    <span>
+                                        Orden sin iniciar
+                                    </span>
+                                </div>
+                            </button>                        </div>
                         <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == 1">
-                            <h2>La orden esta en proceso</h2> 
-                        </div>
+                            <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:khaki; color: black;margin: 10px;">
+
+                                <div class="d-flex justify-content-center">
+                                    <span>
+                                         Orden en proceso
+                                    </span>
+                                </div>
+                            </button>                        </div>
                         <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == 2">
-                            <h2>La orden esta lista</h2> 
+                            <!--<h2>La orden esta lista</h2> -->
+                            <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:rgb(172, 246, 176); color: black;margin: 10px;">
+
+                                <div class="d-flex justify-content-center">
+                                    <span>
+                                        Orden terminada
+                                   </span> 
+                                </div>
+                            </button>
                         </div>
                        
                 </div>
+
+
                 <div class="cart-card-footer padding">
-                    <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:rgb(251, 159, 159); color: black;margin: 10px;" (click)="cambiarStatus(selectedOrder.value.id,0)">
+                    <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == 0">
+                            <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:rgb(165, 159, 251); color: black;margin: 10px;" (click)="cambiarStatus(selectedOrder.value.id,1)">
 
-                        <div class="d-flex justify-content-center">
-                            <span>
-                                Orden sin iniciar
-                            </span>
-                        </div>
-                    </button>
-                    <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:khaki; color: black;margin: 10px;" (click)="cambiarStatus(selectedOrder.value.id,1)">
+                                <div class="d-flex justify-content-center">
+                                    <span>
+                                     Marcar orden Iniciada
+                                    </span>
+                                </div>
+                            </button>                       
+                         </div>
+                         <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == 1">
+                            <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:rgb(165, 159, 251); color: black;margin: 10px;" (click)="cambiarStatus(selectedOrder.value.id,2)">
 
-                        <div class="d-flex justify-content-center">
-                            <span>
-                                Marcar orden en proceso
-                            </span>
-                        </div>
-                    </button>
-                    <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:rgb(172, 246, 176); color: black;margin: 10px;" (click)="cambiarStatus(selectedOrder.value.id,2)">
+                                <div class="d-flex justify-content-center">
+                                    <span>
 
-                        <div class="d-flex justify-content-center">
-                            <span>
-                               Marcar orden Terminada
-                           </span> 
-                        </div>
-                    </button>
+                                        Marcar orden finalizada                                    </span>
+                                </div>
+                            </button>                       
+                         </div>
+                         <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == null">
+                            <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:rgb(165, 159, 251); color: black;margin: 10px;"  disabled>
+
+                                <div class="d-flex justify-content-center">
+                                    <span>
+                                       Elige una orden! 
+                                    </span>
+                                </div>
+                            </button>                       
+                         </div>
+                         <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == 2">
+                            <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:rgb(165, 159, 251); color: black;margin: 10px;"  disabled>
+
+                                <div class="d-flex justify-content-center">
+                                    <span style="color: red;">
+                                        La orden esta finalizada
+                                    </span>
+                                </div>
+                            </button>                       
+                         </div>
+                    
+                    
+                    
                 </div>
             </div>
         </div>
