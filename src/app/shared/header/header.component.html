@@ -76,13 +76,13 @@
     <div class="popover">
         <ul class="profile-dropdown">
 
-            <li [routerLink]="['/my-account/orders']" class="profile-dropdown-item" routerLinkActive="active">
+            <li [routerLink]="['/my-account/orders']" class="profile-dropdown-item" routerLinkActive="active" *ngIf="currentRoute !== '/kitchen/orders'">
                 <button mat-icon-button color="dark">
                     <mat-icon fontSet="material-icons-outlined">receipt</mat-icon>
                 </button>
                 Ordenes
             </li>
-            <li [routerLink]="['/my-account/favourites']" class="profile-dropdown-item" routerLinkActive="active">
+            <!--<li [routerLink]="['/my-account/favourites']" class="profile-dropdown-item" routerLinkActive="active">
                 <button mat-icon-button color="dark">
                     <mat-icon fontSet="material-icons-outlined">favorite</mat-icon>
                 </button>
@@ -105,7 +105,7 @@
                     <mat-icon fontSet="material-icons-outlined">person</mat-icon>
                 </button>
                 Cuenta
-            </li>
+            </li> -->
             <li (click)="logout()" class="profile-dropdown-item" style="padding-left: 12px;;">Cerrar Sesión</li>
         </ul>
     </div>

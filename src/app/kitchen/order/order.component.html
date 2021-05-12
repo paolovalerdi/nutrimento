@@ -17,13 +17,13 @@
                         <div class="address-box-footer">
                             <ul>
                                 <li *ngFor="let product of order.products">
-                                    {{ product.quantity }} x {{ product.name }} 
+                                    {{ product.quantity }} x {{ product.name }}
                                 </li>
                             </ul>
                             <div style="margin-top: 20px;">
                                 <div class="button-box">
-                                    <button mat-raised-button class="default-button success-outline" (click)="mostrarOrden(order.id)"
-                                        style="width: 150px;">
+                                    <button mat-raised-button class="default-button success-outline"
+                                        (click)="mostrarOrden(order.id)" style="width: 150px;">
                                         <span>Ver orden</span>
                                     </button>
                                 </div>
@@ -34,100 +34,64 @@
             </div>
         </div>
         <div class="right-container-box">
-            <div class="main-box cart-card" style="padding: 0; border-radius: 12px; height: 380px;">
+            <div class="main-box cart-card" style="padding: 0; border-radius: 12px;">
                 <div class="cart-card-header flex-with-space-between padding-horizontaly">
                     <div class="flex-item-center">
                         <mat-icon fontSet="material-icons-outlined">receipt_long</mat-icon>
                         <div class="very-small-gap"></div>
                         <h2>Orden</h2>
-
+                    </div>
+                    <div style="width: 90px; height: 30px; background-color: #2962ff; color: white; border-radius: 60px; display: flex;" *ngIf="selectedOrder.value.status === 0">
+                        <span style="font-size: 14px; margin: auto;">Pendiente</span>
+                    </div>
+                    <div *ngIf="selectedOrder.value.status === 1" style="width: 90px;  height: 30px; background-color: #00c853; color: black; border-radius: 60px; display: flex;">
+                        <span style="font-size: 14px; margin: auto;">En progreso</span>
+                    </div>
+                    <div *ngIf="selectedOrder.value.status === 2" style="width: 90px; height: 30px; background-color: grey; color: white; border-radius: 60px; display: flex;">
+                        <span style="font-size: 14px; margin: auto;">Terminada</span>
                     </div>
                 </div>
-                <div class="cuadro" style="max-height: 480px !important;">
-                    <h3>Tu orden es:</h3>
-                    <br>
-
-                        <div class="d-flex justify-content-center" style="height:25px; text-align: center;">
-                            <h2>{{selectedOrder.value.id}}</h2> 
-                        </div>
-                        <br>
-                        <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == 0">
-                            <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:rgb(251, 159, 159); color: black;margin: 10px;"x>
-
-                                <div class="d-flex justify-content-center">
-                                    <span>
-                                        Orden sin iniciar
-                                    </span>
+                <div class="cart-card-body" style="max-height: 280px !important;">
+                    <ul>
+                        <li class="flex-with-space-between padding" *ngFor="let item of selectedOrder.value.products">
+                            <div class="flex-item-center">
+                                <span>{{item.quantity}}</span>
+                                <div class="small-gap"></div>
+                                <span>x</span>
+                                <div class="small-gap"></div>
+                                <div class="flex-column">
+                                    <span> {{item.name}} </span>
                                 </div>
-                            </button>                        </div>
-                        <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == 1">
-                            <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:khaki; color: black;margin: 10px;">
-
-                                <div class="d-flex justify-content-center">
-                                    <span>
-                                         Orden en proceso
-                                    </span>
-                                </div>
-                            </button>                        </div>
-                        <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == 2">
-                            <!--<h2>La orden esta lista</h2> -->
-                            <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:rgb(172, 246, 176); color: black;margin: 10px;">
-
-                                <div class="d-flex justify-content-center">
-                                    <span>
-                                        Orden terminada
-                                   </span> 
-                                </div>
-                            </button>
-                        </div>
-                       
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-
-
                 <div class="cart-card-footer padding">
-                    <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == 0">
-                            <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:rgb(165, 159, 251); color: black;margin: 10px;" (click)="cambiarStatus(selectedOrder.value.id,1)">
-
-                                <div class="d-flex justify-content-center">
-                                    <span>
-                                     Marcar orden Iniciada
-                                    </span>
-                                </div>
-                            </button>                       
-                         </div>
-                         <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == 1">
-                            <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:rgb(165, 159, 251); color: black;margin: 10px;" (click)="cambiarStatus(selectedOrder.value.id,2)">
-
-                                <div class="d-flex justify-content-center">
-                                    <span>
-
-                                        Marcar orden finalizada                                    </span>
-                                </div>
-                            </button>                       
-                         </div>
-                         <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == null">
-                            <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:rgb(165, 159, 251); color: black;margin: 10px;"  disabled>
-
-                                <div class="d-flex justify-content-center">
-                                    <span>
-                                       Elige una orden! 
-                                    </span>
-                                </div>
-                            </button>                       
-                         </div>
-                         <div class="d-flex justify-content-center" style="height:25px; text-align: center;" *ngIf="selectedOrder.value.estado == 2">
-                            <button mat-raised-button class="full-width full-height success-background " style="height: 45px; background-color:rgb(165, 159, 251); color: black;margin: 10px;"  disabled>
-
-                                <div class="d-flex justify-content-center">
-                                    <span style="color: red;">
-                                        La orden esta finalizada
-                                    </span>
-                                </div>
-                            </button>                       
-                         </div>
+                    <button mat-raised-button (click)="cambiarStatus(selectedOrder.value.id,1)" *ngIf="selectedOrder.value.status == 0"
+                        class="full-width full-height" style="background-color: #00c853; color: black;">
+                        <div class="flex-with-space-between">
+                            <span></span>
+                            <span>Mover a en progreso</span>
+                            <span></span>
+                        </div>
+                    </button>
+                    <button mat-raised-button (click)="cambiarStatus(selectedOrder.value.id, 2)" *ngIf="selectedOrder.value.status == 1"
+                        class="full-width full-height" style="background-color: grey; color: white;">
+                        <div class="flex-with-space-between">
+                            <span></span>
+                            <span>Mover a terminada</span>
+                            <span></span>
+                        </div>
+                    </button>
                     
-                    
-                    
+                    <button mat-raised-button (click)="fakePayment()" *ngIf="selectedOrder.value.status == 2"
+                        class="full-width full-height" disabled>
+                        <div class="flex-with-space-between">
+                            <span></span>
+                            <span>La orden se ha entregado</span>
+                            <span></span>
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>

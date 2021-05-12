@@ -30,20 +30,23 @@ export class OrdersService {
           id: it.payload.doc.id,
           date: Date.parse(doc.date),
           products: products,
-          userid: doc.userId
+          userid: doc.userId,
+          userEmail: doc.userEmail
         }
       })),
     );
   }
 
-  async sentOrderToDb(useruid: string, products: Array<OrderFood>) {
+  async sendOrderToDb(useruid: string, userEmail: string, products: Array<OrderFood>) {
     await this.firestore.collection<Order>("orders").add({
       userId: useruid,
+      userEmail: userEmail,
       date: new Date().toString(),
       products: JSON.stringify(products),
       status: 0
     });
   }
+
   getOrderById(id: string) {
     console.log("Entrada" + id);
     return this.firestore.collection<any>("orders").doc<any>(id).snapshotChanges().pipe(
@@ -60,7 +63,7 @@ export class OrdersService {
           id: it.payload.id,
           date: Date.parse(doc.date),
           products: products,
-          estado: doc.status,
+          status: doc.status,
         };
       }))
   }
