@@ -22,6 +22,9 @@ export class LoginService {
     }
     catch (error){console.log(error)}
   }
+
+
+  
   async singUp(email: string, password: string){
 
     try {
