@@ -9,17 +9,14 @@
                     </div>
                 </div>
                 <div class="address-box-container">
-                    <div class="address-box-card" *ngFor="let order of orders | async">
+                    <div class="address-box-card" *ngFor="let order of orders | async; index as i">
                         <div class="address-box-header">
                             <mat-icon fontSet="material-icons-outlined">receipt_long</mat-icon>
-                            <h3 style="font-weight: 500; margin-left: 10px">{{ order.id }}</h3>
+                            <h3 style="font-weight: 700; margin-left: 10px">Orden #{{i + 1}}</h3>
                         </div>
                         <div class="address-box-footer">
-                            <ul>
-                                <li *ngFor="let product of order.products">
-                                    {{ product.quantity }} x {{ product.name }}
-                                </li>
-                            </ul>
+                            <span style="font-size: 14px;">ID: {{ order.id }}</span><br>
+                            <span style="font-size: 14px;">Cliente: {{ order.userEmail }}</span><br>
                             <div style="margin-top: 20px;">
                                 <div class="button-box">
                                     <button mat-raised-button class="default-button success-outline"

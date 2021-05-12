@@ -33,13 +33,19 @@ s
         </div>
         <div style="flex: 1; margin-left: 400px;"          *ngIf="order.status ==0">
             
-            <button mat-raised-button class="full-width full-height success-background " style="height: 80px; width: 700px; background-color:khaki; color: black;">
-                En preparación
+            <button mat-raised-button class="full-width full-height success-background " style="height: 80px; width: 700px; background-color:#2962ff; color: white;">
+                Tu ordén está pendiente
             </button>
         </div>
         <div style="flex: 1; margin-left: 400px;"          *ngIf="order.status ==1">
             
-            <button mat-raised-button class="full-width full-height success-background " style="height: 80px; width: 700px; background-color:rgb(128, 243, 107); color: black;">
+            <button mat-raised-button class="full-width full-height success-background " style="height: 80px; width: 700px; background-color:#00c853; color: black;">
+                Tu ordén está en progreso
+            </button>
+        </div>
+        <div style="flex: 1; margin-left: 400px;"          *ngIf="order.status ==2">
+            
+            <button mat-raised-button class="full-width full-height success-background " style="height: 80px; width: 700px;" disabled>
                 ¡Su orden esta lista!
             </button>
         </div>

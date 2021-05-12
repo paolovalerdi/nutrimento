@@ -35,7 +35,7 @@ export class PaymentComponent implements OnInit {
     });
     const user = await this.loginService.getCurrentUser();
     const products = this.cartService.cart.value;
-    await this.orderService.sendOrderToDb(user.uid, products);
+    await this.orderService.sendOrderToDb(user.uid, user.email, products);
     this.isLoading.next(false);
   }
 
